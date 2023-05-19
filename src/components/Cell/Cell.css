@@ -1,0 +1,7 @@
+.Cell {
+    border: 2px solid rgba(255, 255, 255, 0.87);
+    border-radius: 6px;
+    width: 33%;
+    padding: 1em;
+    margin: 0.5em;
+}
