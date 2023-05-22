@@ -1,5 +1,5 @@
 import { Cell } from "../Cell/Cell";
-import "./winner.css";
+import "./Winner.css";
 
 export function Winner({ winner, resetGame }) {
   if (winner === null) return null;
