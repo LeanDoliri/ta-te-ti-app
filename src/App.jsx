@@ -41,6 +41,7 @@ function App() {
       <Game board={board} updateBoard={updateBoard}/>
       <Turn TURNS={TURNS} turn={turn} />
       <Winner winner={winner} resetGame={resetGame} />
+      <button className="button" onClick={resetGame}>Reiniciar juego</button>
     </>
   );
 }
