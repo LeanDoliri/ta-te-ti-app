@@ -11,7 +11,7 @@ export function Winner({ winner, resetGame }) {
         <h1>{winnerText}</h1>
         <header>{winner && <Cell>{winner}</Cell>}</header>
         <footer>
-          <button onClick={resetGame}>Empezar de nuevo</button>
+          <button className="button" onClick={resetGame}>Empezar de nuevo</button>
         </footer>
       </div>
     </section>

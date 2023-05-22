@@ -5,16 +5,19 @@
 }
 
 .button {
-  color: rgba(255, 255, 255, 0.87);
-  background-color:  #242424;
-  border: 2px solid rgba(255, 255, 255, 0.87);
+  font-family: 'Kanit', sans-serif;
+  font-size: 1em;
+  color: var(--text-color);
+  background-color:  var(--secondary-btn-color);
+  border: none;
   border-radius: 6px;
   padding: 1em;
   margin: 0.5em;
   cursor: pointer;
+  transition: 100ms;
 }
 
 .button:hover {
-  color: #242424;
-  background-color: rgba(255, 255, 255, 0.87);
+  scale: 1.1;
+  background-color: var(--primary-btn-color);
 }
