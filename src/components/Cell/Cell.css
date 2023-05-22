@@ -1,7 +1,19 @@
 .Cell {
-    border: 2px solid rgba(255, 255, 255, 0.87);
-    border-radius: 6px;
-    width: 33%;
-    padding: 1em;
-    margin: 0.5em;
+  width: 2em;
+  height: 2em;
+  font-size: 2em;
+  border: 2px solid rgba(255, 255, 255, 0.87);
+  border-radius: 6px;
+  margin: 0.2em;
+  display: grid;
+  place-items: center;
+}
+
+.Cell:hover {
+  cursor: pointer;
+}
+
+.isSelected {
+  color: #242424;
+  background: rgba(255, 255, 255, 0.87);
 }

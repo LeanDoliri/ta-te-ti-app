@@ -3,8 +3,3 @@
   padding: 2rem;
   text-align: center;
 }
-
-.game {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}

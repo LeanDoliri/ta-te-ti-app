@@ -1,9 +1,15 @@
-import "./Cell.css"
+import "./Cell.css";
 
-export function Cell ({children, updateBoard, index}) {
-    return (
-        <div className="Cell">
-            {children}
-        </div>
-    )
+export function Cell({ children, isSelected, updateBoard, index }) {
+  const className = `Cell ${isSelected ? "isSelected" : ""}`;
+
+  const handleClick = () => {
+    updateBoard(index);
+  }
+
+  return (
+    <section onClick={handleClick} className={className}>
+      {children}
+    </section>
+  );
 }
