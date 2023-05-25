@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./App.css";
 import { Turn } from "./components/Turn/Turn";
 import { Winner } from "./components/Winner/Winner";
@@ -11,10 +11,12 @@ function App() {
     const boardInLs = window.localStorage.getItem("board");
     return boardInLs ? JSON.parse(boardInLs) : Array(9).fill(null);
   });
+
   const [turn, setTurn] = useState(() => {
     const turnInLs = window.localStorage.getItem("turn");
     return turnInLs ? JSON.parse(turnInLs) : TURNS.X;
   });
+
   const [winner, setWinner] = useState(null);
 
   const updateBoard = (index) => {
@@ -26,9 +28,6 @@ function App() {
 
     const newTurn = turn === TURNS.X ? TURNS.O : TURNS.X;
     setTurn(newTurn);
-
-    window.localStorage.setItem("board", JSON.stringify(newBoard));
-    window.localStorage.setItem("turn", JSON.stringify(newTurn));
 
     const newWinner = checkWinner(newBoard);
     if (newWinner) {
@@ -42,14 +41,16 @@ function App() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
     setWinner(null);
-
-    window.localStorage.clear("turn");
-    window.localStorage.clear("board");
   };
+
+  useEffect(() => {
+    window.localStorage.setItem("board", JSON.stringify(board));
+    window.localStorage.setItem("turn", JSON.stringify(turn));
+  }, [board, turn]);
 
   return (
     <>
-      <h1>Ta Te Ti</h1>
+      <h1 className="title">Ta Te Ti</h1>
       <Game board={board} updateBoard={updateBoard} />
       <Turn TURNS={TURNS} turn={turn} />
       <Winner winner={winner} resetGame={resetGame} />
