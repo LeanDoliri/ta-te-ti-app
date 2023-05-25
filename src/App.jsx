@@ -19,7 +19,7 @@ function App() {
 
   const [winner, setWinner] = useState(null);
 
-  const updateBoard = (index) => {
+  function updateBoard (index) {
     if (board[index] || winner) return;
 
     const newBoard = [...board];
@@ -37,7 +37,7 @@ function App() {
     }
   };
 
-  const resetGame = () => {
+  function resetGame () {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
     setWinner(null);

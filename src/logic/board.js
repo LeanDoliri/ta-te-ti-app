@@ -1,6 +1,6 @@
 import { WINNER_COMBOS } from "../constants";
 
-export const checkWinner = (boardToCheck) => {
+export function checkWinner (boardToCheck) {
   for (const combo of WINNER_COMBOS) {
     const [a, b, c] = combo;
     if (
@@ -14,6 +14,6 @@ export const checkWinner = (boardToCheck) => {
   return null;
 };
 
-export const checkEndGame = (newBoard) => {
+export function checkEndGame (newBoard) {
   return newBoard.every((cell) => cell !== null);
 };
