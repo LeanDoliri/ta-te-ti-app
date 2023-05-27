@@ -5,6 +5,8 @@ import { Winner } from "./components/Winner/Winner";
 import { checkWinner, checkEndGame } from "./logic/board";
 import { TURNS } from "./constants.js";
 import { Game } from "./components/Game/Game";
+import { useScores } from "./hooks/useScores";
+import { Scores } from "./components/Scores/Scores";
 
 function App() {
   const [board, setBoard] = useState(() => {
@@ -19,7 +21,9 @@ function App() {
 
   const [winner, setWinner] = useState(null);
 
-  function updateBoard (index) {
+  const { scores, setScores } = useScores({ winner });
+
+  function updateBoard(index) {
     if (board[index] || winner) return;
 
     const newBoard = [...board];
@@ -35,13 +39,20 @@ function App() {
     } else if (checkEndGame(newBoard)) {
       setWinner(false);
     }
-  };
+  }
 
-  function resetGame () {
+  function resetGame() {
     setBoard(Array(9).fill(null));
     setTurn(TURNS.X);
     setWinner(null);
-  };
+    setScores({ X: 0, O: 0 });
+  }
+
+  function playAgain (){
+    setBoard(Array(9).fill(null));
+    setTurn(TURNS.X);
+    setWinner(null);
+  }
 
   useEffect(() => {
     window.localStorage.setItem("board", JSON.stringify(board));
@@ -53,7 +64,8 @@ function App() {
       <h1 className="title">Ta Te Ti</h1>
       <Game board={board} updateBoard={updateBoard} />
       <Turn TURNS={TURNS} turn={turn} />
-      <Winner winner={winner} resetGame={resetGame} />
+      <Winner winner={winner} playAgain={playAgain} />
+      <Scores TURNS={TURNS} scores={scores} />
       <button className="button" onClick={resetGame}>
         Reiniciar juego
       </button>

@@ -1,0 +1,14 @@
+.scores {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  gap: 1em;
+  margin: 1em 0;
+  color: var(--primary-btn-color);
+}
+
+.scores-player {
+    color: var(--text-color);
+    font-size: 1.5em;
+}
