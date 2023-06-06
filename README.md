@@ -11,6 +11,6 @@ https://ta-te-ti-app-leandrodoliri.netlify.app/
 - HTML
 - Node.js
 
-# 🚀 Fucnionalidades:
+# 🚀 Funcionalidades:
 - Memoria en local storage para cada partida.
 - Tabla con conteo de victorias.
